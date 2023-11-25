@@ -1,0 +1,18 @@
+#Wed Aug 16 06:39:14 GMT 2023
+micronaut:
+  application:
+    name: micronaut-jdbi
+  server:
+    port: 8080
+    thread-selection: auto
+
+datasources:
+  default:
+    url: "jdbc:mysql://${DB_HOST:localhost}:${DB_PORT:3306}/${DB_NAME:users}?useUnicode=yes&characterEncoding=UTF-8&autoReconnect=true&useSSL=false&rewriteBatchedStatements=true&useLocalSessionState=true"
+    username: ${DB_USERNAME:root}
+    password: ${DB_PASSWORD:password}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    maximum-pool-size: 50
+    minimum-idle: 1
+    testStatement: "SELECT 1 FROM DUAL"
+    connection-timeout: 3000
